@@ -1,0 +1,185 @@
+"Design a modern, user-friendly mobile application for 'Divisional Secretariat KALMUNAI' named "DSK" that seamlessly integrates three user roles: Public, Staff, and Admin. The application aims to provide efficient access to public services and streamline internal administrative processes. The primary target audience is the general public. Incorporate the provided logos (Logo 1, Logo 2 ) and use a blue color palette with gradient effects. Ensure button colors are distinct and visually appealing. Utilize relevant icons throughout the application, particularly within the left-side menu bar.
+
+Landing Page:
+
+Must include: Home, Contact, About, and Login sections.
+
+Unified Login Page:
+
+Design a centralized login page that allows users to select their respective roles (Public, Staff, Admin) upon login, ensuring a streamlined user experience.
+
+Role-Based Access and Functionality:
+
+1. Admin Dashboard:
+
+After successful login as Admin, redirect to a comprehensive Admin Dashboard.
+Functionality: Provide Admin users with full CRUD (Create, Read, Update, Delete) control over:
+Staff Accounts: Creation and management of Staff user accounts.
+Roles: Definition and management of different staff roles and their associated permissions.
+Access Departments/Divisions: Assign staff members to specific departments or divisions within the Divisional Secretariat KALMUNAI.
+Design Considerations: Focus on clear data presentation, intuitive navigation, and efficient CRUD operation workflows.
+public registry fields:  Develop a 'Public Registry' (dual-entry reception registry module) for a public services in the staff dashboard . The module should support:
+- New public visitors –  After account creation, redirect to the registry entry form.
+- Existing public users – enable ID card scanning via QR code. Upon scanning, auto-populate registry entry fields with stored data from the public_users account database.
+Include timestamped logs of each entry, filterable by department or date, and allow optional fields like phone and remarks. Provide export options (PDF/CSV) and real-time validation. Design for responsiveness and speed at the reception desk.  if any new table need to create, please mention the sql code for that, the interface design must be more unique and modern     ---------------------------------------------------------
+|               Public Visitor Registry                 |
+---------------------------------------------------------
+|  Select Visitor Type: [● New Visitor] [○ Existing ID] |
+---------------------------------------------------------
+
+▶ If "New Visitor" is selected:
+---------------------------------------------------------
+|         ➕ Create New Public Account                   |
+---------------------------------------------------------
+|  Name:              [_________________________]       |
+|  NIC Number:        [_________________________]       |
+|  Address:           [_________________________]       |
+|  Department:        [ Dropdown ▼             ]       |
+|  Phone (optional):  [_________________________]       |
+|  Remarks:           [_________________________]       |
+|                                                       |
+|  [ Save Account & Proceed to Registry Entry ]         |
+---------------------------------------------------------
+
+▶ If "Existing ID" is selected:
+---------------------------------------------------------
+|         🔍 Scan or Enter Public ID                    |
+---------------------------------------------------------
+|  [ 📷 Scan QR Code ]  or  [__________ Enter ID ]      |
+|                                                       |
+|  Auto-filled fields:                                  |
+|  Name: Jane Perera       | NIC: **********            |
+|  Department: Licensing   | Address: ...               |
+|                                                       |
+|  Purpose of Visit:  [_________________________]       |
+|  Remarks (optional): [_________________________]       |
+|                                                       |
+|  [ Submit Entry ]                                     |
+---------------------------------------------------------
+
+▼ Entry Log Panel (Today): for example, the data must be in real time 
+---------------------------------------------------------
+| Time     | Name        | NIC       | Department |     |
+|----------|-------------|-----------|------------|-----|
+| 09:05 AM | Jane Perera | ********* | Licensing  | ... |
+---------------------------------------------------------
+[ Export as PDF ]  [ Export as CSV ]
+2. Staff Account:
+
+After successful login as Staff, redirect to the Staff Dashboard.
+Functionality:
+Public Account Creation: Allow Staff users to create Public accounts.
+ID Card Generation: Generate printable ID cards looks like uploaded id card.png (image and PDF formats) for Public users. The ID card should include (but not limited to) user photo, ID number, name, and department.
+Department Access: Grant access to the staff member's assigned department's functions (e.g., Administrative Division, SSO, Planning Division, Accounts Division, ADR, NIC).
+Public ID Card Scanning: Implement a feature to scan Public ID cards to view and update account details.
+Design Considerations: Ensure the ID card generation process is straightforward and customizable with relevant information. Make data update forms clear and easy to use on mobile.
+id card
+----------------------------
+"modify the black and white government identification card for printing, sized for a wallet. The header should contain two official logos(the uploaded images)—one on the left and one on the right—aligned at the top corners. Centered between the logos is the heading “Divisional Secretariat - Kalmunai” in bold, clear lettering. The left side of the card should include labeled fields for Name, NIC, Date of Birth, Mobile Number, Address  and Public_ID. The right half of the card should be dominated by a large QR code occupying roughly 50% of the card width. Use a clean, minimal layout with sharp contrast suitable for monochrome printing, and formal typography for a professional appearance."
+
+Public token Display System (/display route)
+
+Large, TV-optimized fonts and layout
+Departments grouped with divisions
+Current serving tokens prominently displayed
+Waiting queue visualization
+Auto-refresh every 10 seconds
+Database Enhancements
+
+Added called_at, called_by, updated_at columns to tokens table
+Created database view for efficient token querying
+Enhanced tracking for token status changes
+API Endpoint
+
+New /display/current-tokens.php endpoint
+Real-time token status and statistics
+Optimized queries for display performance
+
+public registry fields:  Develop a 'Public Registry' (dual-entry reception registry module) for a public services in the staff dashboard . The module should support:
+- New public visitors –  After account creation, redirect to the registry entry form.
+- Existing public users – enable ID card scanning via QR code. Upon scanning, auto-populate registry entry fields with stored data from the public_users account database.
+Include timestamped logs of each entry, filterable by department or date, and allow optional fields like phone and remarks. Provide export options (PDF/CSV) and real-time validation. Design for responsiveness and speed at the reception desk.  if any new table need to create, please mention the sql code for that, the interface design must be more unique and modern     ---------------------------------------------------------
+|               Public Visitor Registry                 |
+---------------------------------------------------------
+|  Select Visitor Type: [● New Visitor] [○ Existing ID] |
+---------------------------------------------------------
+
+▶ If "New Visitor" is selected:
+---------------------------------------------------------
+|         ➕ Create New Public Account                   |
+---------------------------------------------------------
+|  Name:              [_________________________]       |
+|  NIC Number:        [_________________________]       |
+|  Address:           [_________________________]       |
+|  Department:        [ Dropdown ▼             ]       |
+|  Phone (optional):  [_________________________]       |
+|  Remarks:           [_________________________]       |
+|                                                       |
+|  [ Save Account & Proceed to Registry Entry ]         |
+---------------------------------------------------------
+
+▶ If "Existing ID" is selected:
+---------------------------------------------------------
+|         🔍 Scan or Enter Public ID                    |
+---------------------------------------------------------
+|  [ 📷 Scan QR Code ]  or  [__________ Enter ID ]      |
+|                                                       |
+|  Auto-filled fields:                                  |
+|  Name: Jane Perera       | NIC: **********            |
+|  Department: Licensing   | Address: ...               |
+|                                                       |
+|  Purpose of Visit:  [_________________________]       |
+|  Remarks (optional): [_________________________]       |
+|                                                       |
+|  [ Submit Entry ]                                     |
+---------------------------------------------------------
+
+▼ Entry Log Panel (Today): for example, the data must be in real time 
+---------------------------------------------------------
+| Time     | Name        | NIC       | Department |     |
+|----------|-------------|-----------|------------|-----|
+| 09:05 AM | Jane Perera | ********* | Licensing  | ... |
+---------------------------------------------------------
+[ Export as PDF ]  [ Export as CSV ]
+
+3. Public Services Access (Public User):
+
+After successful login as Public, redirect to the Public Services Access page.
+Functionality:
+Service Booking: Enable Public users to browse and book services offered by the Divisional Secretariat KALMUNAI. Services include:
+*Administrative Division: Issuing of Permits, Certifying and Counter signing of Grama Niladari Certificates, Renewing Licenses, Collecting Revenue.
+*SSO: Provision of Aids and Equipment's, Issuing Senior Citizenship Identity Cards, Issuing Dry Rations.
+*Planning Division: Identifying the Development Needs, Evaluation the Progress of the Projects, Updating PMCS, Maintaining and Updating Resources Profile of the Division.
+*Accounts Division: Preparing the Procurement Plan of the Year, All the activities related to payments, Conducting Board of Surveys, Handling Audit Queries, Preparing Financial Statements.
+*ADR: BC,DC,MC provides.
+*NIC: Provides NIC.
+Token Management: Generate online or printable tokens for booked services.
+Document Downloads: Provide access to downloadable documents, including: Certificate application forms, application forms related to the services listed above, and any other relevant documents required for service applications.
+Notifications: Send timely notifications to users about their service requests, token status, and upcoming appointments.
+Design Considerations: Prioritize clear service descriptions, easy booking processes, and readily accessible downloadable documents. Design notification system to be prominent and user-friendly.
+
+upgarde the public dashboard with a service catalog grid and a user panel for tokens/appointments. Implement a multi-step booking form that saves to the service_requests table. Notifications should pull from notifications using WebSocket updates. Optimize for mobile with collapsed accordions.
+Let citizens book services, track tokens, and download documents.
+
+A. Layout Structure
+    Service Catalog
+    Hero Section: "Book Government Services Online" + Search bar.
+    Category Cards: 6 cards (Administrative, SSO, Planning, etc.).
+    User Dashboard
+    Active Tokens: Status chips (🟡 Pending, 🟢 Ready).
+    Appointments: Date, time, service name, "Cancel" button.
+
+B. Key Components
+    Service Booking Flow
+    Select Service: Card grid (icon + name + description).
+    Fill Form: Dynamic fields (e.g., upload NIC scan for permits).
+    Confirm: Summary page with "Submit" button → Generates token.
+    Document Downloads
+    Accordion Menu:
+        plaintext
+        Administrative Division ▼  
+        - Business Permit Form (PDF)  
+        - License Renewal Guide (DOCX)  
+C. Actions & Flow
+    Token Tracking: Click token → View details (estimated time, office location).
+    Notification Bell: Badge for unread alerts (linked to notifications table).
